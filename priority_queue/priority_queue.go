@@ -10,7 +10,8 @@ var (
 
 type PriorityQueue[T any] struct {
 	values []T
-	cmp    func(v1 T, v2 T) int
+	// compare v1 and v2, if v1 > v2, you should return a non-negative number, if v1 == v2, return 0, if v1 < v2, return a negative number
+	cmp func(v1 T, v2 T) int
 }
 
 func New[T any](cmp func(v1 T, v2 T) int) *PriorityQueue[T] {
